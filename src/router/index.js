@@ -7,37 +7,42 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/admin',
     name: 'dashboard',
     component: DashboardLayout,
     children:[
       {
+        path: '/',
+        name: 'Dashboard',
+        component: () => import('../pages/Admin.vue')
+      },
+      {
         path: '/posts',
         name: 'Посты',
-        component: () => import(/* webpackChunkName: "about" */ '../pages/Posts.vue')
+        component: () => import('../pages/Posts.vue')
       },
       {
         path: '/users',
         name: 'Пользователи',
-        component: () => import(/* webpackChunkName: "about" */ '../pages/Users.vue')
+        component: () => import('../pages/Users.vue')
       },
       {
         path: '/test',
         name: 'Тест',
-        component: () => import(/* webpackChunkName: "about" */ '../pages/Test.vue')
+        component: () => import('../pages/Test.vue')
       },
       {
         path: '/info',
         name: 'Тест',
-        component: () => import(/* webpackChunkName: "about" */ '../pages/Info.vue')
+        component: () => import('../pages/Info.vue')
       }
     ],
   },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-  }
 ]
 
 const router = new VueRouter({

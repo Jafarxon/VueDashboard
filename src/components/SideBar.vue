@@ -1,7 +1,12 @@
 <template>
     <div class="side-bar" :class="getClasses()">
         <div class="side-bar-content">
-            <div class="logo"><img src="../assets/logo.svg" width="30px" height="30px" alt="logo"/>dashboard</div>
+            <div class="logo">
+                <router-link to="/admin">
+                    <img src="../assets/logo.svg" width="30px" height="30px" alt="logo"/>
+                    dashboard
+                </router-link>
+               </div>
             <div class="menu-list">
                 <router-link to="/users">
                     <BIconPersonCircle/>
@@ -22,7 +27,7 @@
             </div>
         </div>
         <div class="menu-list">
-            <router-link to="/login">
+            <router-link to="/">
                 <b-icon-arrow-left-circle class="mr-3"/>
                 Выход
             </router-link>
@@ -110,15 +115,23 @@
     }
 
     .logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         margin: 15px;
         padding-bottom: 10px;
         text-transform: uppercase;
         font-weight: 600;
         border-bottom: 1px solid #d1d1d1;
         text-align: center;
+        a{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color:#343a40;
+        }
+        a:hover{
+            color:#343a40;
+            text-decoration: none;
+        }
     }
 </style>
